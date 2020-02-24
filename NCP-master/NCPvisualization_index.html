@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<!-- Color Scale -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="js/data_module.js"></script>
+<script src="js/vis_module.js"></script>
+
+<script>
+
+    // set the dimensions and margins of the graph
+    var margin = {top: 10, right: 100, bottom: 30, left: 100},
+        width = 660 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+    readData();
+
+    // here the data is not loaded yet: compare the log results
+    // this is because d3.csv is an asynchronous function.
+    console.log(d);
+
+    ColorScale();
+
+    CreateAxis();
+
+    AddLine();
+
+    AddPoint();
+
+    AddLegend();
+
+
+</script>
